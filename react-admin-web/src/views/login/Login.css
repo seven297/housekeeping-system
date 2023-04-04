@@ -1,0 +1,29 @@
+.login-input {
+	left: 323px;
+	top: 201px;
+	width: 316px;
+	height: 32px;
+	line-height: 10px;
+	border-radius: 420.5px;
+	background-color: rgba(255, 255, 255, 0.57);
+	text-align: center;
+	border: 0.5px solid rgba(187, 187, 187, 1);
+}
+
+.login-contain {
+	height: 20%;
+}
+
+.login {
+	background-color: rgba(7, 98, 176, 0.62);
+	color: rgba(255, 255, 255, 1);
+}
+
+input {
+	border: 0;
+	outline-color: transparent;
+}
+
+input:focus-visible {
+	border: 0;
+}
