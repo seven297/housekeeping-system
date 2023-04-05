@@ -6,8 +6,6 @@ function Login() {
 	const navigate = useNavigate()
 
 	const loginConfirm = () => {
-		console.log(111)
-
 		navigate('/project')
 	}
 
