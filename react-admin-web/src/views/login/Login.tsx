@@ -3,9 +3,12 @@ import { useNavigate } from 'react-router-dom'
 import './Login.css'
 
 function Login() {
-	function loginConfirm() {
-		const navigate = useNavigate()
-		navigate('/homepage')
+	const navigate = useNavigate()
+
+	const loginConfirm = () => {
+		console.log(111)
+
+		navigate('/project')
 	}
 
 	return (
@@ -19,12 +22,10 @@ function Login() {
 					<input type="text" name="" id="" placeholder="请输入密码" />
 				</div>
 			</div>
-			<div
-				className="flex-center-center"
-				style={{ marginTop: '50px' }}
-				onClick={() => loginConfirm}
-			>
-				<button className="login-input login">登录</button>
+			<div className="flex-center-center" style={{ marginTop: '50px' }}>
+				<button className="login-input login" onClick={loginConfirm}>
+					登录
+				</button>
 			</div>
 		</div>
 	)
