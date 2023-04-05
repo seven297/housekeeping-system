@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router-dom'
 import './Login.css'
 
 function Login() {
-	function loginConfirm() {
-		const navigate = useNavigate()
+	const navigate = useNavigate()
+
+	const loginConfirm = () => {
 		navigate('/homepage')
 	}
 

@@ -1,4 +1,3 @@
-import './Login.css'
 import React from 'react'
 
 function Homepage() {
