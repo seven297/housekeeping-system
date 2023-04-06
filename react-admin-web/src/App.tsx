@@ -1,33 +1,46 @@
-import {  Container, Divider, Grid, Paper } from '@mui/material'
+import React, { useState } from 'react';
 import { Routes, Route, Navigate, Outlet } from 'react-router-dom'
+
+import { Layout, theme } from 'antd';
+import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import './App.css'
+
 import Navigation from './components/layout/Navigation';
-import Header from './components/layout/Header';
 
 function App() {
+	const { Header, Sider, Content } = Layout;
+	const { token: { colorBgContainer } } = theme.useToken();
+	const [collapsed, setCollapsed] = useState(false);
+
 	return (
-		<div className="App">
-			<Paper elevation={0} className="pager" >
-				<Grid container className="container">
-					{/* navigation */}
-					<Grid item xs={2}>
-						<Navigation />
-					</Grid>
-					<Divider orientation="vertical" />
-					<Grid item xs>
-						{/* header */}
-						<Header />
-						{/* children router view */}
-						<Routes>
-								<Route path={'/'} element={<Navigate replace to="/login" />} />
-						</Routes>
-						<Container maxWidth="sm">
-							<Outlet></Outlet>
-						</Container>
-					</Grid>
-				</Grid>
-			</Paper>
-		</div>
+		<Layout className="App">
+			<Sider trigger={null} collapsible collapsed={collapsed}>
+				<div className="logo" />
+				<Navigation />
+			</Sider>
+			<Layout className="site-layout">
+				<Header style={{ padding: 0, background: colorBgContainer }}>
+					{React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+						style: { padding: '0 24px' },
+						onClick: () => setCollapsed(!collapsed),
+					})}
+				</Header>
+				<Content
+					style={{
+						margin: '24px 16px',
+						padding: 24,
+						minHeight: 280,
+						background: colorBgContainer,
+					}}
+				>
+					{/* children router view */}
+					<Routes>
+							<Route path={'/'} element={<Navigate replace to="/login" />} />
+					</Routes>
+					<Outlet></Outlet>
+				</Content>
+			</Layout>
+		</Layout>
 	)
 }
 
