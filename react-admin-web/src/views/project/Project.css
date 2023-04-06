@@ -1,0 +1,18 @@
+.m-r-10 {
+	margin-right: 10px;
+}
+
+.dialog-content-label {
+	width: 40%;
+	text-align: right;
+	margin-right: 20px;
+}
+
+.textarea {
+	border: 1px solid #999999;
+	width: 50%;
+	resize: none;
+	padding: 8.5px 14px;
+	font-size: 16px;
+	border-radius: 5;
+}
