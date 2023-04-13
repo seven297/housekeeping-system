@@ -15,7 +15,7 @@ function App() {
 	return (
 		<Layout className="App">
 			<Sider trigger={null} collapsible collapsed={collapsed}>
-				<div className="logo" />
+				<div className="logo">后台管理系统</div>
 				<Navigation />
 			</Sider>
 			<Layout className="site-layout">
