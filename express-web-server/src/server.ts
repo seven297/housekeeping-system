@@ -14,6 +14,6 @@ app.use(bodyParser())
 app.use(router.routes()).use(router.allowedMethods())
 
 // 运行服务器
-app.listen(3000)
+app.listen(process.env.PORT)
 
-console.log('runing')
+console.log('runing node web server....')
