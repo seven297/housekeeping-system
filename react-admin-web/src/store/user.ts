@@ -14,7 +14,7 @@ function clearUser(state: any) {
 
 const userStore = createStore((state = {}, action) => {
   switch (action.type) {
-    case 'fetch':
+    case 'getUser':
       return getUser(state)
     case 'clear':
       return clearUser(state)
@@ -23,4 +23,8 @@ const userStore = createStore((state = {}, action) => {
   }
 });
 
+export enum UserActionType {
+  getUser = 'getUser',
+  clear = 'clear'
+}
 export default userStore

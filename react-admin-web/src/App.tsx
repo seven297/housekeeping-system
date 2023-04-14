@@ -17,7 +17,7 @@ function App() {
 	const [collapsed, setCollapsed] = useState(false)
 	const [loginState, setLoginState] = useState(loginStorage.get<boolean>())
 
-	loginStore.subscribe(() => setLoginState(loginStore.getState() as boolean))
+	loginStore.subscribe(() => setLoginState(loginStore.getState()))
 	return (
 		loginState
 			? <Layout className="App">
