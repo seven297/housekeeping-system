@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import loginStore from '../../store/login'
 import './Login.css'
 
 function Login() {
@@ -7,6 +8,7 @@ function Login() {
 
 	const loginConfirm = () => {
 		navigate('/project')
+		loginStore.dispatch({ type: 'login' })
 	}
 
 	return (

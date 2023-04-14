@@ -7,11 +7,19 @@ export default function useStorage(key: StorageKey) {
   const STORAGE_PREFIX = 'system-app-2023'
   const storageName = `${STORAGE_PREFIX}-${key}`
   
-  const get = () => {
-    return window.localStorage.getItem(storageName)
+  const get = <T>() => {
+    try {
+      const value = window.localStorage.getItem(storageName)
+      if (value) {
+        return JSON.parse(value) as T
+      }
+      return null
+    } catch (error) {
+      console.error(`获取--${key}--失败！`)
+    }
   }
 
-  const set = <T = Record<string, unknown>>(value: T) => {
+  const set = <T>(value: T) => {
     window.localStorage.setItem(storageName, JSON.stringify(value))
   }
 
