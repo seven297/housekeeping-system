@@ -10,13 +10,15 @@ export default defineConfig(({ mode }) => {
     plugins: [react()],
     envDir: './env',
     server: {
+      cors: true,
+      https: false,
       port: 3000,
       proxy: {
         [ENV.VITE_BASE_SERVER_URL]: {
           target: ENV.VITE_TARGET_SERVER_URL,
           changeOrigin: true,
           ws: true,
-          rewrite: (path) => path.replace('/api', '')
+          rewrite: (path) => path.replace(ENV.VITE_BASE_SERVER_URL, '')
         }
       }
     }

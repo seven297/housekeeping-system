@@ -1,4 +1,4 @@
-import router from './routes'
+import { registerRouter } from './router'
 import Koa from 'koa'
 import cors from '@koa/cors'
 import bodyParser from 'koa-bodyparser'
@@ -10,8 +10,8 @@ const app = new Koa()
 app.use(cors())
 app.use(bodyParser())
 
-// 响应用户请求
-app.use(router.routes()).use(router.allowedMethods())
+// 注册路由
+registerRouter(app)
 
 // 运行服务器
 app.listen(process.env.PORT)

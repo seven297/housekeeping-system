@@ -7,10 +7,10 @@ function Login() {
 	const navigate = useNavigate()
 
 	const loginConfirm = async () => {
-		const result = await serverApi.post('api/auth/login')
-		console.log(result.data)
-		navigate('/project')
-		loginStore.dispatch({ type: LoginActionType.login })
+		const result = await serverApi.post('/auth/login')
+		console.log(result)
+		// navigate('/project')
+		// loginStore.dispatch({ type: LoginActionType.login })
 	}
 
 	return (
