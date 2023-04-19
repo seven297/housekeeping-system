@@ -6,7 +6,7 @@ import UserController from './controllers/user'
 const router = new Router()
 
 // auth 相关的路由
-router.post('api/auth/login', AuthController.login)
+router.post('/auth/login', AuthController.login)
 router.post('api/auth/register', AuthController.register)
 
 // users 相关的路由

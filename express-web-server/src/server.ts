@@ -16,4 +16,4 @@ app.use(router.routes()).use(router.allowedMethods())
 // 运行服务器
 app.listen(process.env.PORT)
 
-console.log('runing node web server....')
+console.log(`runing node web server[post:${process.env.PORT}] ....`)
