@@ -3,7 +3,7 @@ import Router from '@koa/router'
 import routes from './routes'
 import { RouteConfig } from "./typings/router.type";
 
-// 初始化 路由实例
+// 初始化路由实例
 const router = new Router()
 
 // 注册路由

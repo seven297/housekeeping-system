@@ -16,6 +16,7 @@ export default class ConnectionController<T extends Connection> {
 
   // 数据库连接
   connect() {
+    // TODO 错误返回待添加
     this.dbInstance.connect()
   }
 

@@ -10,12 +10,14 @@ import authRoutes from "./modules/auth"
 // router.put('/users/:id', UserController.updateUser)
 // router.delete('/users/:id', UserController.deleteUser)
 
-function formatRoute(namespace: string, routes: RouteConfig[]): RouteConfig[] {
-  return routes.map((r) => ({ ...r, path: `${namespace}${r.path}`}))
-}
 
+/** 服务端路由配置 */
 const routes: RouteConfig[] = [
   ...formatRoute('/auth', authRoutes),
 ]
+
+function formatRoute(namespace: string, routes: RouteConfig[]): RouteConfig[] {
+  return routes.map((r) => ({ ...r, path: `${namespace}${r.path}`}))
+}
 
 export default routes
