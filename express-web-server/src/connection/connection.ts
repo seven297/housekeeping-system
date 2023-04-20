@@ -30,7 +30,7 @@ export default class ConnectionController<T extends Connection> {
     return new Promise((resolve, reject) => {
       this.dbInstance.query({ sql }, (error, rows) => {
         if (error) {
-          reject(error)
+          reject(`[SELECT ERROR] - ${error.message}`)
         } else {
           resolve(rows)
         }
