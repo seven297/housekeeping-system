@@ -4,10 +4,8 @@ import { Context } from 'koa'
 
 export default class AuthController {
 	public static async login(ctx: Context) {
-		connection.query({ sql: 'SELECT * FROM user' }, (error, row) => {
-			console.log(row)
-		})
-		ctx.body = ResponseController.onSuccess('Login controller')
+		const rows = await connection.query('SELECT * FROM user')
+		ctx.body = ResponseController.onSuccess(rows)
 	}
 
 	public static async register(ctx: Context) {
