@@ -1,5 +1,5 @@
 import AuthController from "../../controllers/auth";
-import { RouteConfig, RouteMethod } from "../@types/router";
+import { RouteConfig, RouteMethod } from "../../typings/router.type";
 
 const authRoutes: RouteConfig[] = [
   {

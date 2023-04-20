@@ -1,5 +1,5 @@
-import { RouteConfig } from "@/router/@types/router"
-import authRoutes from "./routes/auth"
+import { RouteConfig } from "../typings/router.type"
+import authRoutes from "./modules/auth"
 // // auth 相关的路由
 // router.post('/auth/login', AuthController.login)
 // router.post('/auth/register', AuthController.register)

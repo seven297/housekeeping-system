@@ -1,7 +1,7 @@
 import Koa from 'koa'
 import Router from '@koa/router'
 import routes from './routes'
-import { RouteConfig } from '@/router/@types/router'
+import { RouteConfig } from "./typings/router.type";
 
 // 初始化 路由实例
 const router = new Router()
