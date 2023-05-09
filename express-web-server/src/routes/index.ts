@@ -1,5 +1,6 @@
 import { RouteConfig } from "../typings/router.type"
 import authRoutes from "./modules/auth"
+import projectRoutes from "./modules/project"
 // // auth 相关的路由
 // router.post('/auth/login', AuthController.login)
 // router.post('/auth/register', AuthController.register)
@@ -14,6 +15,7 @@ import authRoutes from "./modules/auth"
 /** 服务端路由配置 */
 const routes: RouteConfig[] = [
   ...formatRoute('/auth', authRoutes),
+  ...formatRoute('/project', projectRoutes),
 ]
 
 function formatRoute(namespace: string, routes: RouteConfig[]): RouteConfig[] {
