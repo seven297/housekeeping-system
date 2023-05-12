@@ -23,51 +23,6 @@ const dataSource = [
 	},
 ]
 
-const columns = [
-	{
-		title: 'ID',
-		dataIndex: 'id',
-		key: 'id',
-	},
-	{
-		title: '服务分类',
-		dataIndex: 'classification',
-		key: 'classification',
-	},
-	{
-		title: '服务方式',
-		dataIndex: 'mode',
-		key: 'mode',
-	},
-	{
-		title: '服务名称',
-		dataIndex: 'name',
-		key: 'name',
-	},
-	{
-		title: '状态',
-		dataIndex: 'status',
-		key: 'status',
-	},
-	{
-		title: '备注',
-		dataIndex: 'remark',
-		key: 'remark',
-	},
-	{
-		title: '操作',
-		key: 'action',
-		render: (_: any, record: any) => (
-			<Space size="middle">
-				<Button type="primary">修改</Button>
-				<Button type="primary" danger>
-					禁用
-				</Button>
-			</Space>
-		),
-	},
-]
-
 function Project() {
 	const [open, setOpen] = useState(false)
 	const [openDeleteDialog, setOpenDeleteDialog] = useState(false)
@@ -102,6 +57,53 @@ function Project() {
 		selectedRowKeys,
 		onChange: onSelectChange,
 	}
+
+	const columns = [
+		{
+			title: 'ID',
+			dataIndex: 'id',
+			key: 'id',
+		},
+		{
+			title: '服务分类',
+			dataIndex: 'classification',
+			key: 'classification',
+		},
+		{
+			title: '服务方式',
+			dataIndex: 'mode',
+			key: 'mode',
+		},
+		{
+			title: '服务名称',
+			dataIndex: 'name',
+			key: 'name',
+		},
+		{
+			title: '状态',
+			dataIndex: 'status',
+			key: 'status',
+		},
+		{
+			title: '备注',
+			dataIndex: 'remark',
+			key: 'remark',
+		},
+		{
+			title: '操作',
+			key: 'action',
+			render: (_: any, record: any) => (
+				<Space size="middle">
+					<Button type="primary" onClick={handleClickOpen}>
+						修改
+					</Button>
+					<Button type="primary" danger>
+						禁用
+					</Button>
+				</Space>
+			),
+		},
+	]
 
 	// 提交表单
 	const submit = async (values: any) => {

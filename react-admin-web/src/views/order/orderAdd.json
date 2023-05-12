@@ -1,0 +1,131 @@
+[
+	{
+		"field": "id",
+		"label": "订单ID",
+		"formKey": "订单ID",
+		"type": "input",
+		"value": "",
+		"required": false,
+		"size": 4
+	},
+	{
+		"field": "settlement",
+		"label": "结算方式",
+		"formKey": "结算方式",
+		"value": "",
+		"type": "select",
+		"required": true,
+		"size": 4
+	},
+	{
+		"field": "orderStatus",
+		"label": "订单状态",
+		"formKey": "订单状态",
+		"value": "",
+		"type": "select",
+		"required": true,
+		"size": 4
+	},
+	{
+		"field": "projectType",
+		"label": "服务项目",
+		"formKey": "服务分类",
+		"value": "",
+		"type": "select",
+		"required": true,
+		"size": 6
+	},
+	{
+		"field": "projectMode",
+		"label": "",
+		"value": "",
+		"formKey": "服务方式",
+		"type": "select",
+		"required": true,
+		"size": 6
+	},
+	{
+		"field": "projectName",
+		"label": "",
+		"value": "",
+		"formKey": "服务名称",
+		"type": "select",
+		"required": true,
+		"size": 6
+	},
+
+	{
+		"field": "customerName",
+		"label": "客户名称",
+		"value": "",
+		"formKey": "客户名称",
+		"type": "input",
+		"required": true,
+		"size": 6
+	},
+	{
+		"field": "contacts",
+		"label": "联系人",
+		"value": "",
+		"formKey": "联系人",
+		"type": "input",
+		"required": false,
+		"size": 6
+	},
+	{
+		"field": "city",
+		"label": "所在区域",
+		"value": "",
+		"formKey": "城市",
+		"type": "select",
+		"required": true,
+		"size": 6
+	},
+	{
+		"field": "area",
+		"label": "",
+		"value": "",
+		"formKey": "城区",
+		"type": "select",
+		"required": true,
+		"size": 6
+	},
+	{
+		"field": "address",
+		"label": "",
+		"value": "",
+		"formKey": "地址",
+		"type": "input",
+		"required": true,
+		"size": 6
+	},
+	{
+		"field": "workerCount",
+		"label": "用工人数",
+		"value": "",
+		"formKey": "用工人数",
+		"type": "input",
+		"required": true,
+		"size": 6
+	},
+
+	{
+		"field": "workTime",
+		"label": "用工工时",
+		"value": "",
+		"formKey": "用工工时",
+		"type": "input",
+		"required": true,
+		"size": 6
+	},
+	{
+		"field": "workerPay",
+		"label": "用工工时费",
+		"value": "",
+		"formKey": "用工工时费",
+		"type": "input",
+		"required": true,
+		"size": 6
+	},
+	{ "field": "remark", "label": "备注", "value": "", "required": false, "size": 6 }
+]

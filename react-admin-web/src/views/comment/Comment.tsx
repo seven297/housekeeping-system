@@ -1,6 +1,7 @@
 import { Button, Space, Table } from 'antd'
 import { ColumnsType } from 'antd/es/table'
 import { useState } from 'react'
+import Search from './Search'
 
 function Comment() {
 	const columns: ColumnsType<Record<string, unknown>> = [
@@ -30,6 +31,7 @@ function Comment() {
 	return (
 		<div>
 			客户评价管理
+			<Search searchConfirm={function (): void {}} />
 			<Table columns={columns} dataSource={data} />
 		</div>
 	)

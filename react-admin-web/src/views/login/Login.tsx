@@ -9,8 +9,8 @@ function Login() {
 	const loginConfirm = async () => {
 		const result = await serverApi.post('/auth/login')
 		console.log(result)
-		// navigate('/project')
-		// loginStore.dispatch({ type: LoginActionType.login })
+		navigate('/project')
+		loginStore.dispatch({ type: LoginActionType.login })
 	}
 
 	return (

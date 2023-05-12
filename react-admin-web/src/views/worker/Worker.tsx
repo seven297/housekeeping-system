@@ -1,8 +1,17 @@
 import { Button, Space, Table } from 'antd'
 import { ColumnsType } from 'antd/es/table'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import WorkSearch from './WorkSearch'
+import UpdateWorker from './UpdateWorker'
 
 function Worker() {
+	const navigate = useNavigate()
+
+	const navToWorkerDetail = () => {
+		navigate('/workerDetail')
+	}
+
 	const columns: ColumnsType<Record<string, unknown>> = [
 		{ title: 'ID', dataIndex: 'id', key: 'ID' },
 		{ title: '姓名', dataIndex: 'name', key: 'age' },
@@ -19,8 +28,12 @@ function Worker() {
 			key: 'action',
 			render: (_, record) => (
 				<Space size="middle">
-					<Button size="small">详情</Button>
-					<Button size="small">修改</Button>
+					<Button size="small" onClick={navToWorkerDetail}>
+						详情
+					</Button>
+					<Button size="small" onClick={toggleOpen}>
+						修改
+					</Button>
 					<Button danger size="small">
 						删除
 					</Button>
@@ -29,11 +42,30 @@ function Worker() {
 		},
 	]
 
-	const data: Record<string, unknown>[] = []
+	const data: Record<string, unknown>[] = [
+		{
+			id: 1,
+			age: 35,
+			operate: '',
+			remark: '备注',
+			status: '状态',
+			name: '服务名称',
+			mode: '服务方式',
+			classification: '服务分类',
+		},
+	]
+
+	const [open, setOpen] = useState<boolean>(false)
+
+	const toggleOpen = () => {
+		setOpen(!open)
+	}
 
 	return (
 		<div>
 			家政人员管理
+			<WorkSearch searchConfirm={() => {}} toggleOpen={toggleOpen} />
+			<UpdateWorker open={open} toggleOpen={toggleOpen} />
 			<Table columns={columns} dataSource={data} />
 		</div>
 	)

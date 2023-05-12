@@ -218,10 +218,7 @@ function Order() {
 				centered
 				width={1000}
 			>
-				<Form
-					name="customer-form"
-					onFinish={submit}
-				>
+				<Form name="customer-form" onFinish={submit}>
 					{formConfig.current.map((_formItem) => (
 						<Form.Item
 							name={_formItem.field}
