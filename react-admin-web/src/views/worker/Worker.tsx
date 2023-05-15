@@ -28,15 +28,9 @@ function Worker() {
 			key: 'action',
 			render: (_, record) => (
 				<Space size="middle">
-					<Button size="small" onClick={navToWorkerDetail}>
-						详情
-					</Button>
-					<Button size="small" onClick={toggleOpen}>
-						修改
-					</Button>
-					<Button danger size="small">
-						删除
-					</Button>
+					<Button onClick={navToWorkerDetail}>详情</Button>
+					<Button onClick={toggleOpen}>修改</Button>
+					<Button danger>删除</Button>
 				</Space>
 			),
 		},

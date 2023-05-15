@@ -10,98 +10,133 @@ const { TextArea } = Input
 const { RangePicker } = DatePicker
 
 import orderAddForm from './orderAdd.json'
-
-interface DataType {
-	key: React.Key
-	name: string
-	age: number
-	address: string
-}
-
-const dataSource = [
-	{
-		id: 1,
-		customerName: '客户名称',
-		time: '时长',
-		wokerCount: '用工人数',
-		status: '订单状态',
-		payStatus: '支付状态',
-		payMoney: '支付金额',
-		payTime: '下单时间',
-		completeTime: '完成时间',
-	},
-]
-
-const columns = [
-	{
-		title: '订单ID',
-		dataIndex: 'id',
-		key: 'id',
-	},
-	{
-		title: '客户名称',
-		dataIndex: 'customerName',
-		key: 'customerName',
-	},
-	{
-		title: '服务项目',
-		dataIndex: 'project',
-		key: 'project',
-	},
-	{
-		title: '时长',
-		dataIndex: 'time',
-		key: 'time',
-	},
-	{
-		title: '用工人数',
-		dataIndex: 'wokerCount',
-		key: 'wokerCount',
-	},
-	{
-		title: '订单状态',
-		dataIndex: 'status',
-		key: 'status',
-	},
-	{
-		title: '支付状态',
-		dataIndex: 'payStatus',
-		key: 'payStatus',
-	},
-	{
-		title: '支付金额',
-		dataIndex: 'payMoney',
-		key: 'payMoney',
-	},
-	{
-		title: '下单时间',
-		dataIndex: 'payTime',
-		key: 'payTime',
-	},
-	{
-		title: '完成时间',
-		dataIndex: 'completeTime',
-		key: 'completeTime',
-	},
-	{
-		title: '操作',
-		key: 'action',
-		render: (_: any, _record: any) => (
-			<Space size="middle">
-				<Button type="primary">修改</Button>
-				<Button type="primary" danger>
-					禁用
-				</Button>
-			</Space>
-		),
-	},
-]
+import OrderComment from './OrderComment'
+import OrderSettlement from './OrderSettlement'
 
 function Order() {
 	const [open, setOpen] = useState(false)
+	const [openComment, setOpenComment] = useState(false)
+	const [openSettlement, setSettlement] = useState(false)
 	const [openDeleteDialog, setOpenDeleteDialog] = useState(false)
 	const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([])
 	const [fullWidth, setFullWidth] = useState(true)
+
+	interface DataType {
+		key: React.Key
+		name: string
+		age: number
+		address: string
+	}
+
+	const dataSource = [
+		{
+			id: 1,
+			customerName: '客户名称',
+			time: '时长',
+			wokerCount: '用工人数',
+			status: '订单状态',
+			payStatus: '支付状态',
+			payMoney: '支付金额',
+			payTime: '下单时间',
+			completeTime: '完成时间',
+		},
+	]
+
+	const columns = [
+		{
+			title: '订单ID',
+			dataIndex: 'id',
+			key: 'id',
+		},
+		{
+			title: '客户名称',
+			dataIndex: 'customerName',
+			key: 'customerName',
+		},
+		{
+			title: '服务项目',
+			dataIndex: 'project',
+			key: 'project',
+		},
+		{
+			title: '时长',
+			dataIndex: 'time',
+			key: 'time',
+		},
+		{
+			title: '用工人数',
+			dataIndex: 'wokerCount',
+			key: 'wokerCount',
+		},
+		{
+			title: '订单状态',
+			dataIndex: 'status',
+			key: 'status',
+		},
+		{
+			title: '支付状态',
+			dataIndex: 'payStatus',
+			key: 'payStatus',
+		},
+		{
+			title: '支付金额',
+			dataIndex: 'payMoney',
+			key: 'payMoney',
+		},
+		{
+			title: '下单时间',
+			dataIndex: 'payTime',
+			key: 'payTime',
+		},
+		{
+			title: '完成时间',
+			dataIndex: 'completeTime',
+			key: 'completeTime',
+		},
+		{
+			title: '操作',
+			key: 'action',
+			render: (_: any, _record: any) => (
+				<Space size="middle">
+					<Button
+						type="default"
+						onClick={() => {
+							setOpen(true)
+						}}
+					>
+						详情
+					</Button>
+					<Button
+						type="default"
+						onClick={() => {
+							setOpen(true)
+						}}
+					>
+						修改
+					</Button>
+					<Button type="default">分配</Button>
+					<Button type="default">取消</Button>
+					<Button
+						type="default"
+						onClick={() => {
+							setOpenComment(true)
+						}}
+					>
+						评价
+					</Button>
+					<Button type="default">完成</Button>
+					<Button
+						type="default"
+						onClick={() => {
+							setSettlement(true)
+						}}
+					>
+						结算
+					</Button>
+				</Space>
+			),
+		},
+	]
 
 	const handleClickOpen = () => {
 		setOpen(true)
@@ -240,6 +275,18 @@ function Order() {
 			>
 				<p>点击确定后将无法恢复，是否确认删除？</p>
 			</Modal>
+			<OrderComment
+				open={openComment}
+				onClose={() => {
+					setOpenComment(false)
+				}}
+			/>
+			<OrderSettlement
+				open={openSettlement}
+				onClose={() => {
+					setSettlement(false)
+				}}
+			/>
 		</div>
 	)
 }

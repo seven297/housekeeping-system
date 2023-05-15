@@ -52,10 +52,10 @@ function WorkSearch({
 						<Input placeholder="请输入内容" onChange={() => {}} />
 					</Space>
 				</Col>
-				<Col span={8}>
+				{/* <Col span={8}>
 					注册时间：
 					<RangePicker onChange={() => {}} />
-				</Col>
+				</Col> */}
 				<Col span={7}>
 					<Space>
 						服务筛选：
