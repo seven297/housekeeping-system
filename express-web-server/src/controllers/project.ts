@@ -2,21 +2,23 @@ import { ResponseController } from './../network/response'
 import connection from '../db'
 import { Context } from 'koa'
 import ProjectSql from './../sqls/project'
+import { ProjectForm } from '@/typings/project.type'
 
 /** 项目服务类 */
 export default class ProjectController {
 	public static async query(ctx: Context) {
 		console.log(ctx)
 		console.log(ctx.query)
-
-		// const rows = await connection.query(ProjectSql.query())
-    const rows = ''
-		ctx.body = ResponseController.onSuccess(rows)
+		const body = ctx.request.body as Partial<ProjectForm>
+		const id = body.id
+		// const rows = await connection.query(ProjectSql.query(id))
+		ctx.body = ResponseController.onSuccess('')
 	}
 
 	public static async add(ctx: Context) {
-		const rows = await connection.query(ProjectSql.add())
-		ctx.body = ResponseController.onSuccess(rows)
+		console.log(ctx.request.body)
+		const rows = await connection.insert(ProjectSql.add(), ['0', '钟点工', ''])
+		ctx.body = ResponseController.onSuccess('')
 	}
 
 	public static async delete(ctx: Context) {

@@ -14,7 +14,7 @@ const projectRoutes: RouteConfig[] = [
 		callback: ProjectController.add,
 	},
 	{
-		method: RouteMethod.GET,
+		method: RouteMethod.POST,
 		path: '/delete',
 		callback: ProjectController.delete,
 	},
@@ -24,12 +24,12 @@ const projectRoutes: RouteConfig[] = [
 		callback: ProjectController.update,
 	},
 	{
-		method: RouteMethod.GET,
+		method: RouteMethod.POST,
 		path: '/enable',
 		callback: ProjectController.enable,
 	},
 	{
-		method: RouteMethod.GET,
+		method: RouteMethod.POST,
 		path: '/disable',
 		callback: ProjectController.disable,
 	},

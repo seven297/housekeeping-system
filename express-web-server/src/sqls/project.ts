@@ -6,7 +6,7 @@ export default class ProjectSql {
 
 	// 添加项目
 	public static add() {
-		return ''
+		return `INSERT INTO service_project (pid, name, remark) VALUES (?, ?, ?)`
 	}
 
 	// 修改项目
