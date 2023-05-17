@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react'
-import { Col, Row, Input, Select, Space, Button, Table, Modal, Form, DatePicker } from 'antd'
-
-const { RangePicker } = DatePicker
+import { Col, Row, Input, Select, Space, Button, DatePicker } from 'antd'
+import locale from 'antd/es/date-picker/locale/zh_CN'
 
 function WorkSearch({
 	searchConfirm,
@@ -50,12 +49,15 @@ function WorkSearch({
 							]}
 						/>
 						<Input placeholder="请输入内容" onChange={() => {}} />
+						<Button type="primary">
+							搜索
+						</Button>
 					</Space>
 				</Col>
-				{/* <Col span={8}>
+				<Col span={6}>
 					注册时间：
-					<RangePicker onChange={() => {}} />
-				</Col> */}
+					<DatePicker.RangePicker locale={locale} onChange={() => {}} />
+				</Col>
 				<Col span={7}>
 					<Space>
 						服务筛选：
@@ -81,7 +83,7 @@ function WorkSearch({
 						/>
 					</Space>
 				</Col>
-				<Col span={1}>
+				<Col span={2}>
 					<Button type="primary" onClick={toggleOpen}>
 						新增
 					</Button>

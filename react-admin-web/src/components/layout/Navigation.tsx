@@ -25,12 +25,12 @@ function Navigation() {
         {
           key: 'worker',
           icon: <ShoppingFilled />,
-          label: '家政人员管理 *',
+          label: '家政人员管理',
         },
         {
           key: 'customer',
           icon: <TeamOutlined />,
-          label: '客户管理*',
+          label: '客户管理',
         },
         {
           key: 'order',
@@ -40,7 +40,7 @@ function Navigation() {
         {
           key: 'comment',
           icon: <LikeFilled />,
-          label: '客户评价管理*',
+          label: '客户评价管理',
         },
       ]}
     />

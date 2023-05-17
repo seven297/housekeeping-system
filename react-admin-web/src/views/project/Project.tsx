@@ -83,10 +83,10 @@ function Project() {
 			// key: 'action',
 			render: (_: any, record: any) => (
 				<Space size="middle">
-					<Button type="primary" onClick={toggleOpen}>
+					<Button type="primary" shape="round" onClick={toggleOpen}>
 						修改
 					</Button>
-					<Button type="primary" danger>
+					<Button shape="round" danger>
 						禁用
 					</Button>
 				</Space>

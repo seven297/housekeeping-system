@@ -28,9 +28,9 @@ function Worker() {
 			key: 'action',
 			render: (_, record) => (
 				<Space size="middle">
-					<Button onClick={navToWorkerDetail}>详情</Button>
-					<Button onClick={toggleOpen}>修改</Button>
-					<Button danger>删除</Button>
+					<Button shape="round" onClick={navToWorkerDetail}>详情</Button>
+					<Button type="primary" shape="round" onClick={toggleOpen}>修改</Button>
+					<Button shape="round" danger>删除</Button>
 				</Space>
 			),
 		},
@@ -57,10 +57,9 @@ function Worker() {
 
 	return (
 		<div>
-			家政人员管理
 			<WorkSearch searchConfirm={() => {}} toggleOpen={toggleOpen} />
 			<UpdateWorker open={open} toggleOpen={toggleOpen} />
-			<Table columns={columns} dataSource={data} />
+			<Table columns={columns} dataSource={data} rowKey="id"/>
 		</div>
 	)
 }

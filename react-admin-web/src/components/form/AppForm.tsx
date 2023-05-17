@@ -7,9 +7,9 @@ export default function AppForm({
   formConfig,
   formData = {},
   formProps = {
-    // labelCol: { span: 8 },
-    // wrapperCol: { span: 16 },
-    // layout: 'inline'
+    labelCol: { span: 8 },
+    wrapperCol: { span: 16 },
+    layout: 'horizontal'
   },
   submit
 }: AppFormProps) {
