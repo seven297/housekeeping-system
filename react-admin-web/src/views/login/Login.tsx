@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import serverApi from '../../api'
+// import serverApi from '../../api'
 import loginStore, { LoginActionType } from '../../store/login'
 import './Login.css'
 
@@ -7,8 +7,8 @@ function Login() {
 	const navigate = useNavigate()
 
 	const loginConfirm = async () => {
-		const result = await serverApi.post('/auth/login')
-		console.log(result)
+		// const result = await serverApi.post('/auth/login')
+		// console.log(result)
 		navigate('/project')
 		loginStore.dispatch({ type: LoginActionType.login })
 	}

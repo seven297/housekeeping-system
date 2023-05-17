@@ -1,6 +1,15 @@
 export enum StorageKey {
   login = 'login-state',
   uid = 'uid',
+  dict = 'dict',
+  project = 'project',
+  user = 'user',
+  customer = 'customer',
+  worker = 'worker',
+  work_ability = 'work_ability',
+  work_experience = 'work_experience',
+  income = 'income',
+  comment = 'comment'
 }
 
 export default function useStorage(key: StorageKey) {

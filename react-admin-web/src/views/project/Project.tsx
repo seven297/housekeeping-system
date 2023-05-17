@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { Input, Select, Space, Button, Table, Modal, Form } from 'antd'
-import serverApi from '../../api'
-import UpdateProject from './UpdateProject'
-import ProjectSearch from './ProjectSearch'
-import ConfirmDelete from './ConfirmDelete'
+import { Space, Button, Table } from 'antd'
+// import serverApi from '../../api'
+import UpdateProject from './components/UpdateProject'
+import ProjectSearch from './components/ProjectSearch'
+import ConfirmDelete from './components/ConfirmDelete'
 
 interface DataType {
 	key: React.Key
@@ -15,8 +15,6 @@ interface DataType {
 const dataSource = [
 	{
 		id: 1,
-		age: 35,
-		operate: '',
 		remark: '备注',
 		status: '状态',
 		name: '服务名称',
@@ -26,12 +24,12 @@ const dataSource = [
 ]
 
 function Project() {
-	const [open, setOpen] = useState(false)
+	const [openDialog, setOpen] = useState(false)
 	const [openDeleteDialog, setOpenDeleteDialog] = useState(false)
 	const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([])
 
 	const toggleOpen = () => {
-		setOpen(!open)
+		setOpen(!openDialog)
 	}
 
 	const toggleDeleteDialog = () => {
@@ -81,7 +79,8 @@ function Project() {
 		},
 		{
 			title: '操作',
-			key: 'action',
+			dataIndex: 'action',
+			// key: 'action',
 			render: (_: any, record: any) => (
 				<Space size="middle">
 					<Button type="primary" onClick={toggleOpen}>
@@ -107,11 +106,7 @@ function Project() {
 	const deleteProject = () => {}
 
 	const getProjectData = () => {
-		serverApi({ url: '/project/query', method: 'get', params: { filter: '1', type: 'ceshi' } })
-			.then((res) => {
-				console.log(res)
-			})
-			.catch((err) => console.log(err))
+		
 	}
 
 	useEffect(() => getProjectData())
@@ -123,13 +118,19 @@ function Project() {
 				searchConfirm={getProjectData}
 				toggleDelete={toggleDeleteDialog}
 			/>
-			<Table rowSelection={rowSelection} dataSource={dataSource} columns={columns} />
-			<UpdateProject open={open} toggleOpen={toggleOpen} />
-			<ConfirmDelete
-				open={openDeleteDialog}
-				toggleOpen={toggleDeleteDialog}
-				deleteProject={deleteProject}
-			/>
+			<Table rowSelection={rowSelection} dataSource={dataSource} columns={columns} rowKey="id"/>
+
+			{/* 表单弹窗 */}
+			{ openDialog && <UpdateProject open={openDialog} toggleOpen={toggleOpen} /> }
+			{/* 删除确认框 */}
+			{
+				openDeleteDialog 
+					&& <ConfirmDelete
+							open={openDeleteDialog}
+							toggleOpen={toggleDeleteDialog}
+							deleteProject={deleteProject}
+						/>
+			}
 		</div>
 	)
 }
