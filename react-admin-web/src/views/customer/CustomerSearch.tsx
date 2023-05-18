@@ -36,7 +36,7 @@ function CustomerSearch({
 	return (
 		<div>
 			<Row style={{ marginBottom: '20px' }}>
-				<Col span={8}>
+				<Col span={7}>
 					<Space>
 						搜索：
 						<Select
@@ -55,11 +55,11 @@ function CustomerSearch({
 						<Button type="primary">搜索</Button>
 					</Space>
 				</Col>
-				<Col span={8}>
+				<Col span={5}>
 					创建时间：
 					<RangePicker onChange={() => {}} />
 				</Col>
-				<Col span={5}>
+				<Col span={6}>
 					<Space>
 						<Select
 							defaultValue="服务分类"
@@ -90,7 +90,7 @@ function CustomerSearch({
 				</Col>
 			</Row>
 			<Row style={{ marginBottom: 20 }}>
-				<Space>
+				<Col span={9}>
 					<Space>
 						<Select
 							placeholder="客户类型"
@@ -136,21 +136,27 @@ function CustomerSearch({
 							options={[]}
 						/>
 					</Space>
+				</Col>
+				<Col span={4}>
 					<Space>
-						服务次数：<Input style={{ width: 60 }} placeholder="请输入"></Input>至
-						<Input style={{ width: 60 }} placeholder="请输入"></Input>
-					</Space>
+						服务次数：<Input style={{ width: 60 }}></Input>至
+						<Input style={{ width: 60 }}></Input>
+					</Space>					
+				</Col>
+				<Col span={5}>
 					<Space>
-						交易金额：<Input style={{ width: 60 }} placeholder="请输入"></Input>至
-						<Input style={{ width: 60 }} placeholder="请输入"></Input>元
-					</Space>
+						交易金额：<Input style={{ width: 60 }}></Input>至
+						<Input style={{ width: 60 }}></Input>元
+					</Space>					
+				</Col>
+				<Col span={4}>					
 					<Space>
 						<Button type="primary">批量导出</Button>
 						<Button type="primary" danger>
 							批量删除
 						</Button>
 					</Space>
-				</Space>
+				</Col>
 			</Row>
 		</div>
 	)

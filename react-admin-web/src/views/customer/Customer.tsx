@@ -42,7 +42,6 @@ function Customer() {
 
 	return (
 		<div>
-			客户管理
 			{/* <Button onClick={handleOpen}>新增</Button> */}
 			<CustomerSearch
 				searchConfirm={function (): void {

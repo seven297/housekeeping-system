@@ -2,6 +2,7 @@ import { Form, Input, InputNumber, Layout, message, Modal, Select, Upload } from
 import { useEffect, useRef, useState } from 'react'
 import AppForm from '../../components/form/AppForm'
 import { FormItemConfig } from '../../components/form/Form'
+import { PlusOutlined } from '@ant-design/icons';
 
 /**
  * [简单的表单组件使用]
@@ -19,12 +20,14 @@ function UpdateCustomer({ open, onClose }: { open: boolean; onClose: () => void 
 			label: 'id',
 			formcomponent: <Input bordered={false} readOnly />,
 			hidden: !formData?.id,
+			style: {margin: '10px'},
 		},
 		{
 			field: 'name',
 			label: '客户姓名',
 			formcomponent: <Input />,
 			rules: [{ required: true, message: '请输入客户名称' }],
+			style: {margin: '10px'},
 		},
 		{
 			field: 'certificationType',
@@ -41,11 +44,13 @@ function UpdateCustomer({ open, onClose }: { open: boolean; onClose: () => void 
 				/>
 			),
 			rules: [{ required: true, message: '请选择认证类型' }],
+			style: {margin: '10px'},
 		},
 		{
 			field: 'contacts',
 			label: '联系人',
 			formcomponent: <Input />,
+			style: {margin: '10px'},
 		},
 		{
 			field: 'phone',
@@ -60,6 +65,7 @@ function UpdateCustomer({ open, onClose }: { open: boolean; onClose: () => void 
 					message: '请输入手机号正确格式',
 				},
 			],
+			style: {margin: '10px'},
 		},
 		{
 			field: 'accountsMethod',
@@ -76,6 +82,7 @@ function UpdateCustomer({ open, onClose }: { open: boolean; onClose: () => void 
 				/>
 			),
 			rules: [{ required: true, message: '请选择结算方式' }],
+			style: {margin: '10px'},
 		},
 		{
 			field: 'customerSource',
@@ -93,17 +100,19 @@ function UpdateCustomer({ open, onClose }: { open: boolean; onClose: () => void 
 				/>
 			),
 			rules: [{ required: true, message: '请选择客户来源' }],
+			style: {margin: '10px'},
 		},
 		{
 			field: 'address',
 			label: '客户地址',
-			formcomponent: <Input />,
+			formcomponent: <Input style={{ width: '300px' }} />,
 			rules: [{ required: true, message: '请输入客户地址' }],
+			style: { width: '100%', margin: '10px'},
 		},
 		{
 			field: 'certificateNo',
 			label: formData?.certificationType === 'personal' ? '身份证号' : '营业执照号',
-			formcomponent: <Input />,
+			formcomponent: <Input style={{ width: '300px' }} />,
 			rules: [
 				{
 					validator: (_, val: string) => {
@@ -118,6 +127,7 @@ function UpdateCustomer({ open, onClose }: { open: boolean; onClose: () => void 
 					// message: '请输入正确的身份证号'
 				},
 			],
+			style: { width: '100%', margin: '10px'},
 		},
 		{
 			field: 'certificatePhoto',
@@ -133,7 +143,10 @@ function UpdateCustomer({ open, onClose }: { open: boolean; onClose: () => void 
 					{formData?.certificatePhoto ? (
 						<img src={formData?.certificatePhoto} alt="avatar" style={{ width: '100%' }} />
 					) : (
-						<div style={{ marginTop: 8 }}>Upload</div>
+						<div>
+							<PlusOutlined />
+							<div style={{ marginTop: 8 }}>上传照片</div>
+						</div>
 					)}
 				</Upload>
 			),
@@ -169,18 +182,16 @@ function UpdateCustomer({ open, onClose }: { open: boolean; onClose: () => void 
 			maskClosable={false}
 			style={{ height: '60%' }}
 		>
-			<Layout style={{ width: '100%', height: '100%', padding: 10 }}>
-				<AppForm
-					form={form}
-					formConfig={formConfig.current}
-					formData={formData}
-					submit={submit}
-					formProps={{
-						labelAlign: 'left',
-						onValuesChange: (changedVal, allVal) => setFormData(allVal),
-					}}
-				/>
-			</Layout>
+			<AppForm
+				form={form}
+				formConfig={formConfig.current}
+				formData={formData}
+				submit={submit}
+				formProps={{
+					layout: 'inline',
+					onValuesChange: (changedVal, allVal) => setFormData(allVal),
+				}}
+			/>
 		</Modal>
 	)
 }

@@ -6,12 +6,14 @@
 
 import React, { useState, useRef } from 'react'
 import { Input, Select, Space, Button, Table, Modal, Form, DatePicker } from 'antd'
-const { TextArea } = Input
-const { RangePicker } = DatePicker
 
 import orderAddForm from './orderAdd.json'
 import OrderComment from './OrderComment'
 import OrderSettlement from './OrderSettlement'
+
+
+const { TextArea } = Input
+const { RangePicker } = DatePicker
 
 function Order() {
 	const [open, setOpen] = useState(false)
@@ -242,7 +244,7 @@ function Order() {
 					</Button>
 				</Space>
 			</div>
-			<Table rowSelection={rowSelection} dataSource={dataSource} columns={columns} />
+			<Table rowSelection={rowSelection} dataSource={dataSource} columns={columns} rowKey="id"/>
 			<Modal
 				title="创建/修改订单"
 				open={open}
